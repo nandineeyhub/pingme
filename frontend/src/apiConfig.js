@@ -1,8 +1,8 @@
 
 
-export const baseURL = "https://ping-chats.vercel.app/api/";
-export const imgUrl = "https://ping-chats.vercel.app/api/users/images/"
-export const base = "https://ping-chats.vercel.app"
+export const baseURL = "https://pingme-production.up.railway.app/api/";
+export const imgUrl = "https://pingme-production.up.railway.app/api/users/images/"
+export const base = "https://pingme-production.up.railway.app"
 export const apiUrls = {
   
   login: "users/login",
