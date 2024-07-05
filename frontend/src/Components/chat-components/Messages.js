@@ -74,7 +74,7 @@ const Messages = ({ showChat, setShowChat, fetchChats }) => {
   }, [activeChatDetails?._id]);
 
   useEffect(() => {
-    const socket = io.connect("http://localhost:8000", { transports: ['websocket', 'polling'] }); 
+    const socket = io.connect(base, { transports: ['websocket', 'polling'] }); 
     socket.on('newMessage', (message) => {
       setChatDetails((val) => { return {...val, messages :[...val.messages, message]}});
     });

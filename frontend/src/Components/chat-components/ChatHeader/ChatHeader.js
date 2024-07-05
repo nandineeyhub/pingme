@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { apiUrls, imgUrl, noImg } from "../../../apiConfig";
+import { apiUrls, base, imgUrl, noImg } from "../../../apiConfig";
 import GroupChatOptionPopup from "../PopupWrapper/GroupChatOptionPopup";
 import { usePopUp } from "../../../customHooks";
 import Index from "../../ProfileUpload.js/Index";
@@ -123,7 +123,7 @@ const ChatHeader = ({
   }, [activeChatDetails?._id]);
 
   useEffect(() => {
-    const socket = io.connect("http://localhost:8000", {
+    const socket = io.connect(base, {
       transports: ["websocket", "polling"],
     });
     const checkUserStatus = (username) => {

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import UserCard from "./userCard/userCard";
 import SearchBar from "./SearchBar/SearchBar";
 import callAPI from "../../apiUtils/apiCall";
-import { apiUrls, groupImg, headers, imgUrl } from "../../apiConfig";
+import { apiUrls, base, groupImg, headers, imgUrl } from "../../apiConfig";
 import { setActiveChat } from "../../Redux/MessageSlice";
 import { useDispatch } from "react-redux";
 import CreateGroupPopup from "./CreateGroupPopup/CreateGroupPopup";
@@ -135,7 +135,7 @@ const ContentSidebar = ({ setShowChat, showChat, friendSuggestions, chats, setFr
 
 
   useEffect(() => {
-    const socket = io.connect("http://localhost:8000", { transports: ['websocket', 'polling'] });
+    const socket = io.connect(base, { transports: ['websocket', 'polling'] });
     if (userDetails?.name) {
       console.log("hi")
       socket.emit("user_connected", userDetails.name);
