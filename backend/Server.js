@@ -12,7 +12,7 @@ const server = http.createServer(app);
 const io = socketIo(server);
 
 const corsOptions = {
-    origin: 'http://localhost:3000',
+    origin: 'https://ping-mee.vercel.app',
     optionsSuccessStatus: 200,  // some legacy browsers (IE11, various SmartTVs) choke on 204
   };
 
