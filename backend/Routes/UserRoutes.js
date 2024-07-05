@@ -1,0 +1,16 @@
+const express = require("express")
+const router = express.Router()
+const { registerUser, login, getMe, getPicture } = require("../Controller/userController")
+const {protect} = require("../Middleware/AuthMiddleware")
+const { upload } = require("../Middleware/UploadFile")
+const {updateMe, uploadProfilePicture, removeProfilePicture, allUser } = require("../Controller/userController")
+
+router.post("/register", registerUser)
+router.post("/login", login)
+router.post("/update-me",protect,updateMe )
+router.get("/me", protect, getMe)
+router.post("/upload-picture", protect, upload.single('picture'), uploadProfilePicture)
+router.delete("/remove-picture", protect, removeProfilePicture)
+router.get("/get-all-users", protect, allUser)
+router.get("/images/:imageName", getPicture)
+module.exports = router 
